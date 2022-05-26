@@ -23,11 +23,11 @@ function App() {
     setSelectedDoc(null)
   }
 
-  const setCroppedImageFor = (id, crop, zoom, aspect, croppedImageUrl) => {
+  const setCroppedImageFor = (id, crop, zoom, aspect, rotation, croppedImageUrl) => {
     const newDocsList = [...docs]
     const docIndex = docs.findIndex(x=>x.id === id)
     const doc = docs[docIndex]
-    const newDoc = {...doc, croppedImageUrl, crop, zoom, aspect}
+    const newDoc = {...doc, crop, zoom, aspect, rotation, croppedImageUrl}
     newDocsList[docIndex] = newDoc
     setDocs(newDocsList)
     setSelectedDoc(null)
@@ -46,6 +46,7 @@ function App() {
           cropInit={selectedDoc.crop} 
           zoomInit={selectedDoc.zoom}
           aspectInit={selectedDoc.aspect}
+          rotationInit={selectedDoc.rotation}
           onCancel={onCancel}
           setCroppedImageFor={setCroppedImageFor}
           resetImage={resetImage}
@@ -58,7 +59,6 @@ function App() {
             src={doc.croppedImageUrl ? doc.croppedImageUrl : doc.imageUrl} 
             alt="" 
             onClick={() => {
-              console.log(doc)
               setSelectedDoc(doc)
             }} 
             />

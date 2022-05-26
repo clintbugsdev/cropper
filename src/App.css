@@ -32,11 +32,17 @@
 
 .controls-upper-area {
   text-align: center;
+  margin-bottom: 10px;
+}
 
+.controls-label {
+  color: aliceblue;
+  padding: 10px;
+  position: relative;
 }
 
 .slider {
-  width: 50%;
+  width: 20%;
 }
 
 .button-area{
